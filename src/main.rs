@@ -3,11 +3,12 @@ extern crate blake2;
 
 use glob::glob;
 use std::fs::File;
+use std::io;
 use std::io::Write;
 use std::path::PathBuf;
 use std::{thread, time};
 use std::result::Result;
-use blake2::{Blake2b, Digest};
+use blake2::{Blake2b512, Digest};
 
 
 
@@ -64,8 +65,12 @@ fn replace_old_files(hash: &String, path: &PathBuf) {
 //
 fn hash_files(f: &PathBuf) -> String {
     let path = f.as_path();
-    let mut file = File::open(&path).expect("Unable to open");;
-    let hash = Blake2b::digest_reader(&mut file).expect("Unable to read file");
+    let mut file = File::open(&path).expect("Unable to open");
+    
+    let mut hasher = Blake2b512::new();
+    io::copy(&mut file, &mut hasher).expect("Unable to read file");
+    let hash = hasher.finalize();
+
     let hash_code = format!("{:x}", hash);
     return hash_code;
 }
