@@ -48,6 +48,11 @@ If you forget, nothing terrible will happen, it will just fail when trying to re
 
 Under those circumstances, a reinstall will not be needed. Just run the patcher again.
 
+After compiling, run the executable found in:
+```
+target\release
+```
+
 ## Built With
 
 * [Rust 1.92.0 (ded5c06cf 2025-12-08)](https://www.rust-lang.org/en-US/) - Language Used
