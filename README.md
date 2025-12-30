@@ -1,5 +1,5 @@
 # adobe-cs6-patcher
-A private patcher for adobe cs6
+A private patcher for adobe cs6. This is not to be used for illegal activity... it only exists because Adobe stopped supporting the CS6 activation process for those who legitimately purchased and own that product... which is evil.
 
 ## Getting Started
 
